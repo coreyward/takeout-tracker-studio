@@ -106,7 +106,7 @@ const restaurant = {
       title: "Last Update/Confirmation of Information",
       name: "confirmedAt",
       type: "datetime",
-      validation: Rule => Rule.required().max(new Date().toISOString()),
+      validation: Rule => Rule.required(),
     },
   ],
   initialValue: () => ({
