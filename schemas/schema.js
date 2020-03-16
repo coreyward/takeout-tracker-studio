@@ -50,6 +50,12 @@ export default createSchema({
           fieldset: "policies",
         },
         {
+          title: "Restaurant is closed for the time being",
+          name: "closedForBusiness",
+          type: "boolean",
+          fieldset: "policies",
+        },
+        {
           title: "Takeout Service Options",
           name: "takeoutOptions",
           description: "Leave blank if the restaurant is not offering takeout.",
