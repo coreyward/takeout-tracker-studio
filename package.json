@@ -11,7 +11,7 @@
     "test": "sanity check",
     "deploy": "npm-run-all --parallel deploy:graphql deploy:studio",
     "deploy:studio": "sanity deploy",
-    "deploy:graphql": "echo n\\\n | sanity graphql deploy",
+    "deploy:graphql": "sanity graphql deploy --no-playground --force",
     "develop": "sanity start"
   },
   "keywords": [
