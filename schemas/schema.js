@@ -115,6 +115,10 @@ export default createSchema({
           validation: Rule => Rule.required().max(new Date().toISOString()),
         },
       ],
+      initialValue: () => ({
+        closedForBusiness: false,
+        confirmedAt: new Date().toISOString(),
+      }),
     },
   ]),
 })
