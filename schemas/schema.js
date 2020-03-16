@@ -57,6 +57,7 @@ export default createSchema({
           of: [{ type: "string" }],
           options: {
             list: [
+              { title: "Dine-In Available", value: "dine-in" },
               { title: "Offers Takeout", value: "takeout" },
               { title: "Offers Curbside", value: "curbside" },
               { title: "Delivery: Self-Delivered", value: "delivery" },
