@@ -103,6 +103,14 @@ const restaurant = {
       of: [{ type: "url", validation: Rule => Rule.required().uri() }],
     },
     {
+      title: "Contact Person",
+      name: "contact",
+      description:
+        "Our point contact for updates for this restaurant. Not public.",
+      type: "reference",
+      to: [{ type: "contact" }],
+    },
+    {
       title: "Last Update/Confirmation of Information",
       name: "confirmedAt",
       type: "datetime",
