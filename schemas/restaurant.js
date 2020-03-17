@@ -20,13 +20,6 @@ const restaurant = {
       },
     },
     {
-      title: "Source/Update Notes",
-      name: "sourceNotes",
-      type: "text",
-      fieldset: "sources",
-      rows: 3,
-    },
-    {
       title: "Operating Policies",
       name: "policies",
       options: {
@@ -93,6 +86,13 @@ const restaurant = {
       type: "array",
       of: [{ type: "url", validation: Rule => Rule.required().uri() }],
       fieldset: "sources",
+    },
+    {
+      title: "Source Notes",
+      name: "sourceNotes",
+      type: "text",
+      fieldset: "sources",
+      rows: 3,
     },
     {
       title: "Hours",
