@@ -20,6 +20,13 @@ const restaurant = {
       },
     },
     {
+      title: "Source/Update Notes",
+      name: "sourceNotes",
+      type: "text",
+      fieldset: "sources",
+      rows: 3,
+    },
+    {
       title: "Operating Policies",
       name: "policies",
       options: {
