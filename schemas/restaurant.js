@@ -3,11 +3,46 @@ const restaurant = {
   name: "restaurant",
   type: "document",
   fieldsets: [
-    { title: "General Information", name: "information" },
-    { title: "Operating Policies", name: "policies" },
-    { title: "Ordering Information", name: "ordering" },
+    {
+      title: "General Information",
+      name: "information",
+      options: {
+        collapsible: true,
+        collapsed: false,
+      },
+    },
+    {
+      title: "Sources & Information Gathering",
+      name: "sources",
+      options: {
+        collapsible: true,
+        collapsed: false,
+      },
+    },
+    {
+      title: "Operating Policies",
+      name: "policies",
+      options: {
+        collapsible: true,
+        collapsed: false,
+      },
+    },
+    {
+      title: "Ordering Information",
+      name: "ordering",
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
+    },
   ],
   fields: [
+    {
+      title: "Restaurant is closed for the time being",
+      name: "closedForBusiness",
+      type: "boolean",
+      validation: Rule => Rule.required(),
+    },
     {
       title: "Name",
       name: "title",
@@ -35,18 +70,28 @@ const restaurant = {
       type: "array",
       of: [{ type: "string" }],
       options: { layout: "tags" },
+      fieldset: "information",
+    },
+    {
+      title: "Last Update/Confirmation of Information",
+      name: "confirmedAt",
+      type: "datetime",
+      validation: Rule => Rule.required(),
+      fieldset: "sources",
+    },
+    {
+      title: "Source URLs",
+      name: "sourceUrls",
+      description: "Links to sources for this information, when available.",
+      type: "array",
+      of: [{ type: "url", validation: Rule => Rule.required().uri() }],
+      fieldset: "sources",
     },
     {
       title: "Hours",
       name: "hours",
       type: "array",
       of: [{ type: "string" }],
-      fieldset: "policies",
-    },
-    {
-      title: "Restaurant is closed for the time being",
-      name: "closedForBusiness",
-      type: "boolean",
       fieldset: "policies",
     },
     {
@@ -75,6 +120,7 @@ const restaurant = {
       name: "policyNotes",
       type: "text",
       fieldset: "policies",
+      rows: 3,
     },
     {
       title: "Order Online URL",
@@ -94,13 +140,7 @@ const restaurant = {
       name: "orderingNotes",
       type: "text",
       fieldset: "ordering",
-    },
-    {
-      title: "Source URLs",
-      name: "sourceUrls",
-      description: "Links to sources for this information, when available.",
-      type: "array",
-      of: [{ type: "url", validation: Rule => Rule.required().uri() }],
+      rows: 3,
     },
     {
       title: "Contact Person",
@@ -109,12 +149,6 @@ const restaurant = {
         "Our point contact for updates for this restaurant. Not public.",
       type: "reference",
       to: [{ type: "contact" }],
-    },
-    {
-      title: "Last Update/Confirmation of Information",
-      name: "confirmedAt",
-      type: "datetime",
-      validation: Rule => Rule.required(),
     },
   ],
   initialValue: () => ({
