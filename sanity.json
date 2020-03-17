@@ -1,7 +1,7 @@
 {
   "root": true,
   "project": {
-    "name": "Takeout Tracker"
+    "name": "ATX Takeout Tracker"
   },
   "api": {
     "projectId": "zxwbrjvh",
@@ -10,10 +10,12 @@
   "plugins": [
     "@sanity/base",
     "@sanity/components",
+    "@sanity/dashboard",
     "@sanity/default-layout",
     "@sanity/default-login",
     "@sanity/desk-tool",
-    "markdown"
+    "markdown",
+    "dashboard-widget-netlify"
   ],
   "env": {
     "development": {
@@ -26,6 +28,10 @@
     {
       "name": "part:@sanity/base/schema",
       "path": "./schemas/schema.js"
+    },
+    {
+      "implements": "part:@sanity/dashboard/config",
+      "path": "./dashboardConfig.js"
     }
   ]
 }
