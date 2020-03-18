@@ -185,7 +185,7 @@ const restaurant = {
       title,
       subtitle: isClosed
         ? "CLOSED"
-        : takeoutOptions.map(opt => serviceLabels[opt]).join(", "),
+        : takeoutOptions?.map(opt => serviceLabels[opt]).join(", "),
       description: tags && `Tags: ${tags.join(", ")}`,
     }),
   },
