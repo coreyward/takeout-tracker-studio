@@ -56,6 +56,12 @@ const restaurant = {
       validation: Rule => Rule.required(),
     },
     {
+      title: "User reported information only (unverified)",
+      name: "unverified",
+      type: "boolean",
+      validation: Rule => Rule.required(),
+    },
+    {
       title: "Name",
       name: "title",
       type: "string",
@@ -172,6 +178,7 @@ const restaurant = {
   ],
   initialValue: () => ({
     closedForBusiness: false,
+    unverified: false,
     confirmedAt: new Date().toISOString(),
   }),
   preview: {
