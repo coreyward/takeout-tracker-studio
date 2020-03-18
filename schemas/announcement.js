@@ -1,3 +1,5 @@
+import moment from "moment"
+
 const announcement = {
   title: "Announcement",
   name: "announcement",
@@ -22,13 +24,31 @@ const announcement = {
       title: "Publish Date/Time",
       name: "publishedAt",
       type: "datetime",
-      validaiton: Rule => Rule.required(),
+      validation: Rule => Rule.required(),
     },
   ],
   initialValue: () => ({
     active: true,
     publishedAt: new Date().toISOString(),
   }),
+  preview: {
+    select: {
+      title: "copy",
+      active: "active",
+      publishedAt: "publishedAt",
+    },
+    prepare: ({ title, active, publishedAt }) => ({
+      title,
+      subtitle: `${active ? "Active: " : ""}${moment(publishedAt).fromNow()}`,
+    }),
+  },
+  orderings: [
+    {
+      title: "Publication Date",
+      name: "publishedAtDesc",
+      by: [{ field: "publishedAt", direction: "desc" }],
+    },
+  ],
 }
 
 export default announcement
