@@ -1,3 +1,15 @@
+const serviceLabels = {
+  "dine-in": "Dine-In",
+  takeout: "Takeout",
+  curbside: "Curbside Takeout",
+  delivery: "By Restaurant",
+  "delivery-favor": "Favor",
+  "delivery-doordash": "DoorDash",
+  "delivery-postmates": "Postmates",
+  "delivery-grubhub": "GrubHub",
+  "delivery-ubereats": "UberEats",
+}
+
 const restaurant = {
   title: "Restaurant",
   name: "restaurant",
@@ -32,7 +44,7 @@ const restaurant = {
       name: "ordering",
       options: {
         collapsible: true,
-        collapsed: true,
+        collapsed: false,
       },
     },
   ],
@@ -109,15 +121,15 @@ const restaurant = {
       of: [{ type: "string" }],
       options: {
         list: [
-          { title: "Dine-In Available", value: "dine-in" },
-          { title: "Offers Takeout", value: "takeout" },
-          { title: "Offers Curbside", value: "curbside" },
-          { title: "Delivery: Self-Delivered", value: "delivery" },
-          { title: "Delivery: Favor", value: "delivery-favor" },
-          { title: "Delivery: DoorDash", value: "delivery-doordash" },
-          { title: "Delivery: Postmates", value: "delivery-postmates" },
-          { title: "Delivery: GrubHub", value: "delivery-grubhub" },
-          { title: "Delivery: UberEats", value: "delivery-ubereats" },
+          { title: "Dine-In", value: "dine-in" },
+          { title: "Takeout", value: "takeout" },
+          { title: "Curbside Takeout", value: "curbside" },
+          { title: "Delivery by Restaurant", value: "delivery" },
+          { title: "Favor", value: "delivery-favor" },
+          { title: "DoorDash", value: "delivery-doordash" },
+          { title: "Postmates", value: "delivery-postmates" },
+          { title: "GrubHub", value: "delivery-grubhub" },
+          { title: "UberEats", value: "delivery-ubereats" },
         ],
       },
       fieldset: "policies",
@@ -162,6 +174,38 @@ const restaurant = {
     closedForBusiness: false,
     confirmedAt: new Date().toISOString(),
   }),
+  preview: {
+    select: {
+      title: "title",
+      isClosed: "closedForBusiness",
+      takeoutOptions: "takeoutOptions",
+      tags: "tags",
+    },
+    prepare: ({ title, isClosed, takeoutOptions, tags }) => ({
+      title,
+      subtitle: isClosed
+        ? "CLOSED"
+        : takeoutOptions.map(opt => serviceLabels[opt]).join(", "),
+      description: tags && `Tags: ${tags.join(", ")}`,
+    }),
+  },
+  orderings: [
+    {
+      title: "Name",
+      name: "titleAsc",
+      by: [{ field: "title", direction: "asc" }],
+    },
+    {
+      title: "Source Freshness, New",
+      name: "confirmedAtDesc",
+      by: [{ field: "confirmedAt", direction: "desc" }],
+    },
+    {
+      title: "Source Freshness, Old",
+      name: "confirmedAtAsc",
+      by: [{ field: "confirmedAt", direction: "asc" }],
+    },
+  ],
 }
 
 export default restaurant
