@@ -151,7 +151,7 @@ const restaurant = {
       title: "Order Online URL",
       name: "orderUrl",
       type: "url",
-      validation: Rule => Rule.uri(),
+      validation: Rule => Rule.uri({ scheme: ["http", "https", "mailto"] }),
       fieldset: "ordering",
     },
     {
