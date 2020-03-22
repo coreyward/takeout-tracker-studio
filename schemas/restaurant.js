@@ -76,6 +76,12 @@ const restaurant = {
       fieldset: "information",
     },
     {
+      title: "Instagram Handle",
+      name: "instagramHandle",
+      type: "string",
+      fieldset: "information",
+    },
+    {
       title: "Menu URL",
       name: "menuUrl",
       type: "url",
