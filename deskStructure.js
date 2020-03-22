@@ -4,7 +4,7 @@ import SublistIcon from "react-icons/lib/md/subdirectory-arrow-right"
 import ContactsIcon from "react-icons/lib/ti/contacts"
 import AnnouncementIcon from "react-icons/lib/fa/bullhorn"
 import DraftsIcon from "react-icons/lib/fa/pencil"
-import ExperiencesIcon from "react-icons/lib/fa/filter"
+import ListsIcon from "react-icons/lib/fa/list"
 import TagsIcon from "react-icons/lib/fa/tags"
 import ClockIcon from "react-icons/lib/fa/clock-o"
 import AuditIcon from "react-icons/lib/md/rate-review"
@@ -58,9 +58,9 @@ export default () =>
               ).icon(ClockIcon),
             ])
         ),
-      S.documentTypeListItem("experience")
-        .title("Experiences")
-        .icon(ExperiencesIcon),
+      S.documentTypeListItem("list")
+        .title("Lists")
+        .icon(ListsIcon),
       S.divider(),
       S.documentTypeListItem("announcement")
         .title("Announcements")

@@ -1,6 +1,6 @@
-const experience = {
-  title: "Experience",
-  name: "experience",
+const list = {
+  title: "List",
+  name: "list",
   type: "document",
   fields: [
     {
@@ -23,4 +23,4 @@ const experience = {
   ],
 }
 
-export default experience
+export default list
