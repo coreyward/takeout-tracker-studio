@@ -38,7 +38,8 @@
     "react": "16.12.0",
     "react-dom": "16.12.0",
     "sanity-plugin-dashboard-widget-netlify": "^1.0.1",
-    "sanity-plugin-markdown": "^1.0.1"
+    "sanity-plugin-markdown": "^1.0.1",
+    "slugify": "^1.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",

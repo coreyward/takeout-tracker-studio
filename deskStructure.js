@@ -9,6 +9,7 @@ import TagsIcon from "react-icons/lib/fa/tags"
 import ClockIcon from "react-icons/lib/fa/clock-o"
 import AuditIcon from "react-icons/lib/md/rate-review"
 import SadIcon from "react-icons/lib/io/sad"
+import PagesIcon from "react-icons/lib/ti/device-desktop"
 import moment from "moment"
 
 const sublist = (title, conditions) =>
@@ -24,6 +25,10 @@ export default () =>
   S.list()
     .title("Content")
     .items([
+      S.documentTypeListItem("page")
+        .title("Pages")
+        .icon(PagesIcon),
+      S.divider(),
       S.documentTypeListItem("restaurant")
         .title("Restaurants")
         .icon(RestaurantIcon),
