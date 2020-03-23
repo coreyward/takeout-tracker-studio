@@ -1,4 +1,5 @@
 import hero from "./objects/hero"
+import { createSlugField } from "./fields/slug"
 
 const list = {
   title: "List",
@@ -21,6 +22,8 @@ const list = {
       type: "string",
       validation: Rule => Rule.required().max(50),
     },
+
+    createSlugField({ prefix: "lists", source: "name" }),
 
     ...hero.fields
       .filter(({ name }) => name !== "title")
