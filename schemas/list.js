@@ -35,7 +35,18 @@ const list = {
       title: "Restaurants",
       name: "restaurants",
       type: "array",
-      of: [{ type: "reference", to: [{ type: "restaurant" }] }],
+      of: [
+        {
+          type: "reference",
+          to: [{ type: "restaurant" }],
+          options: {
+            filter: ({ document }) => ({
+              filter: "!(_id in $ids)",
+              params: { ids: document.restaurants.map(r => r._ref) },
+            }),
+          },
+        },
+      ],
     },
   ],
   preview: {
