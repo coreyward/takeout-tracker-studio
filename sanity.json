@@ -14,15 +14,14 @@
     "@sanity/default-layout",
     "@sanity/default-login",
     "@sanity/desk-tool",
+    "@sanity/vision",
     "markdown",
     "dashboard-widget-netlify",
     "asset-source-unsplash"
   ],
   "env": {
     "development": {
-      "plugins": [
-        "@sanity/vision"
-      ]
+      "plugins": []
     }
   },
   "parts": [
