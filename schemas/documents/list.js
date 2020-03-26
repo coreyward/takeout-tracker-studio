@@ -1,5 +1,5 @@
-import hero from "./objects/hero"
-import { createSlugField } from "./fields/slug"
+import hero from "../objects/hero"
+import { createSlugField } from "../fields/slug"
 
 const list = {
   title: "List",

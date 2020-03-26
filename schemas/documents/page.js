@@ -1,4 +1,4 @@
-const { createSlugField } = require("./fields/slug")
+const { createSlugField } = require("../fields/slug")
 
 const page = {
   title: "Page",

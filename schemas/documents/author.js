@@ -1,4 +1,4 @@
-const { createImageField } = require("./fields/image")
+import { createImageField } from "../fields/image"
 
 const author = {
   title: "Author",
