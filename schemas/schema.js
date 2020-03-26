@@ -1,6 +1,7 @@
 import createSchema from "part:@sanity/base/schema-creator"
 import schemaTypes from "all:part:@sanity/base/schema-type"
 import announcement from "./announcement"
+import author from "./author"
 import contact from "./contact"
 import list from "./list"
 import page from "./page"
@@ -13,6 +14,7 @@ export default createSchema({
   name: "default",
   types: schemaTypes.concat([
     announcement,
+    author,
     contact,
     list,
     listCloud,

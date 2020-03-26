@@ -10,6 +10,7 @@ import ClockIcon from "react-icons/lib/fa/clock-o"
 import AuditIcon from "react-icons/lib/md/rate-review"
 import SadIcon from "react-icons/lib/io/sad"
 import PagesIcon from "react-icons/lib/ti/device-desktop"
+import AuthorIcon from "react-icons/lib/fa/user"
 import moment from "moment"
 
 const sublist = (title, conditions) =>
@@ -70,6 +71,9 @@ export default () =>
       S.documentTypeListItem("announcement")
         .title("Announcements")
         .icon(AnnouncementIcon),
+      S.documentTypeListItem("author")
+        .title("Authors")
+        .icon(AuthorIcon),
       S.documentTypeListItem("contact")
         .title("Contacts")
         .icon(ContactsIcon),

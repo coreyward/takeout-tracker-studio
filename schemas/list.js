@@ -14,6 +14,14 @@ const list = {
         collapsed: false,
       },
     },
+    {
+      title: "Author",
+      name: "author",
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
+    },
   ],
   fields: [
     {
@@ -25,12 +33,20 @@ const list = {
 
     createSlugField({ prefix: "lists", source: "name" }),
 
+    {
+      title: "Author",
+      name: "author",
+      type: "reference",
+      to: [{ type: "author" }],
+    },
+
     ...hero.fields
       .filter(({ name }) => name !== "title")
       .map(field => ({
         ...field,
         fieldset: "hero",
       })),
+
     {
       title: "Restaurants",
       name: "restaurants",
