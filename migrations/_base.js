@@ -20,9 +20,9 @@ import client from "part:@sanity/base/client"
 // NOTE: This query should eventually return an empty set of documents to mark the migration
 // as complete
 
-const fetchDocuments = ({ conditions, fields = [] }) =>
+const fetchDocuments = ({ conditions, fields = [], limit = 100 }) =>
   client.fetch(
-    `*[${conditions.join(" && ")}][0...100] {
+    `*[${conditions.join(" && ")}][0...${limit}] {
       _id,
       _rev,
       ${fields.join(", ")}
@@ -30,7 +30,7 @@ const fetchDocuments = ({ conditions, fields = [] }) =>
   )
 
 const createTransaction = operations =>
-  operations.reduce((tx, [{ _operation, id, props }, doc]) => {
+  operations.reduce((tx, [{ _operation, props }, doc]) => {
     switch (_operation) {
       case "create":
         return tx.create(props)
@@ -38,7 +38,7 @@ const createTransaction = operations =>
         return tx.delete(doc._id)
       case "patch":
         props.ifRevisionID = doc._rev
-        return tx.patch(id, props)
+        return tx.patch(doc._id, props)
       // TODO: Add additional operation types as needed
 
       default:
@@ -48,10 +48,18 @@ const createTransaction = operations =>
 
 const commitTransaction = tx => tx.commit()
 
-const migrateBatch = async (fetchParams, buildOperation) => {
+const migrateBatch = async (
+  fetchParams,
+  buildOperation,
+  options = { singleRun: false }
+) => {
   const documents = await fetchDocuments(fetchParams)
 
-  const operations = documents.map(doc => [buildOperation(doc), doc])
+  const operations = await Promise.all(
+    documents.map(async doc => [await buildOperation(doc), doc])
+  ).catch(err => {
+    throw err
+  })
 
   if (operations.length === 0) {
     console.log("No more documents to migrate!")
@@ -66,9 +74,13 @@ const migrateBatch = async (fetchParams, buildOperation) => {
       )
       .join("\n")
   )
+
   const transaction = createTransaction(operations)
   await commitTransaction(transaction)
-  return migrateBatch(fetchParams, buildOperation)
+
+  if (!options.singleRun) {
+    return migrateBatch(fetchParams, buildOperation)
+  }
 }
 
 const migrate = (fetchParams, buildPatch) => {
