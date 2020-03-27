@@ -3,12 +3,13 @@ import schemaTypes from "all:part:@sanity/base/schema-type"
 import announcement from "./documents/announcement"
 import author from "./documents/author"
 import contact from "./documents/contact"
+import hero from "./objects/hero"
 import list from "./documents/list"
+import listCloud from "./objects/listCloud"
 import page from "./documents/page"
 import restaurant from "./documents/restaurant"
-import hero from "./objects/hero"
+import restaurantLocation from "./objects/restaurantLocation"
 import restaurantsViewer from "./objects/restaurantsViewer"
-import listCloud from "./objects/listCloud"
 
 export default createSchema({
   name: "default",
@@ -21,6 +22,7 @@ export default createSchema({
     hero,
     page,
     restaurant,
+    restaurantLocation,
     restaurantsViewer,
   ]),
 })

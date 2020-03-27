@@ -97,6 +97,12 @@ const restaurant = {
       fieldset: "information",
     },
     {
+      title: "Locations",
+      name: "locations",
+      type: "array",
+      of: [{ type: "restaurantLocation" }],
+    },
+    {
       title: "Last Update/Confirmation of Information",
       name: "confirmedAt",
       type: "datetime",
@@ -119,7 +125,7 @@ const restaurant = {
       rows: 3,
     },
     {
-      title: "Hours",
+      title: "Hours (Deprecated — Use Location Hours)",
       name: "hours",
       type: "array",
       of: [{ type: "string" }],
