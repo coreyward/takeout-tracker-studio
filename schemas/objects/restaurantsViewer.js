@@ -33,6 +33,7 @@ const restaurantsViewer = {
       options: {
         layout: "radio",
         list: [
+          { title: "Map with list", value: "map" },
           { title: "Full-size tiles", value: "tile" },
           { title: "Small preview cards", value: "card" },
         ],
