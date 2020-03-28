@@ -19,7 +19,9 @@ const sublist = (title, conditions) =>
     .child(
       S.documentList()
         .title(title)
-        .filter(conditions)
+        .filter(
+          Array.isArray(conditions) ? conditions.join(" && ") : conditions
+        )
     )
 
 export default () =>
@@ -44,10 +46,10 @@ export default () =>
                 "Unverified / User Reported Only",
                 "_type == 'restaurant' && unverified == true"
               ).icon(AuditIcon),
-              sublist(
-                "Closed for Business",
-                "_type == 'restaurant' && closedForBusiness == true"
-              ).icon(SadIcon),
+              sublist("No Locations", [
+                "_type == 'restaurant'",
+                "!defined(locations)",
+              ]).icon(SadIcon),
               sublist(
                 "Needs Tags",
                 "_type == 'restaurant' && !defined(tags)"
@@ -57,9 +59,8 @@ export default () =>
                 [
                   "_type == 'restaurant'",
                   `confirmedAt < "${moment()
-                    .subtract(3, "days")
+                    .subtract(7, "days")
                     .toISOString()}"`,
-                  "closedForBusiness == false",
                 ].join(" && ")
               ).icon(ClockIcon),
             ])
