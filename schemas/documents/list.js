@@ -52,6 +52,7 @@ const list = {
       name: "restaurants",
       type: "array",
       of: [
+        { type: "listItem" },
         {
           type: "reference",
           to: [{ type: "restaurant" }],

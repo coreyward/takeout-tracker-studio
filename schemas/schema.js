@@ -6,6 +6,7 @@ import contact from "./documents/contact"
 import hero from "./objects/hero"
 import list from "./documents/list"
 import listCloud from "./objects/listCloud"
+import listItem from "./objects/listItem"
 import page from "./documents/page"
 import restaurant from "./documents/restaurant"
 import restaurantLocation from "./objects/restaurantLocation"
@@ -19,6 +20,7 @@ export default createSchema({
     contact,
     list,
     listCloud,
+    listItem,
     hero,
     page,
     restaurant,
