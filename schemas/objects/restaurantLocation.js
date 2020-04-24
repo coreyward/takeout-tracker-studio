@@ -30,6 +30,30 @@ const restaurantLocation = {
       of: [{ type: "string" }],
     },
     {
+      title: "Menu URL",
+      name: "menuUrl",
+      type: "url",
+      validation: Rule => Rule.uri(),
+    },
+    {
+      title: "Also Offering",
+      name: "alsoOffering",
+      description:
+        "Leave blank if the restaurant is only offering prepared meals.",
+      type: "array",
+      of: [{ type: "string" }],
+      options: {
+        list: [
+          { title: "Beer", value: "beer" },
+          { title: "Wine", value: "wine" },
+          { title: "Cocktails", value: "cocktails" },
+          { title: "Coffee", value: "coffee" },
+          { title: "Groceries", value: "groceries" },
+          { title: "Merchandise", value: "merch" },
+        ],
+      },
+    },
+    {
       title: "This location is open for business.",
       name: "openForBusiness",
       type: "boolean",
