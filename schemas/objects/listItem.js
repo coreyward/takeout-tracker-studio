@@ -10,20 +10,16 @@ const listItem = {
       to: [{ type: "restaurant" }],
       options: {
         filter: ({ document }) => {
-          const ids = document.restaurants
+          const ids = (document.restaurants || [])
             .map(r => (r.restaurant ? r.restaurant._ref : r._ref))
             .filter(x => x && x.length)
 
           return ids.length
             ? {
                 filter: "!(_id in $ids)",
-                params: {
-                  ids: document.restaurants
-                    .map(r => (r.restaurant ? r.restaurant._ref : r._ref))
-                    .filter(x => x && x.length),
-                },
+                params: { ids },
               }
-            : null
+            : {}
         },
       },
       validation: Rule => Rule.required(),
