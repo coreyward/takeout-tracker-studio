@@ -24,13 +24,13 @@
     "map"
   ],
   "dependencies": {
-    "@sanity/base": "^1.149.5",
-    "@sanity/components": "^1.149.6",
-    "@sanity/core": "^1.149.6",
-    "@sanity/dashboard": "^1.149.5",
-    "@sanity/default-layout": "^1.149.5",
-    "@sanity/default-login": "^1.149.0",
-    "@sanity/desk-tool": "^1.149.5",
+    "@sanity/base": "^1.149.15",
+    "@sanity/components": "^1.149.15",
+    "@sanity/core": "^1.149.13",
+    "@sanity/dashboard": "^1.149.15",
+    "@sanity/default-layout": "^1.149.15",
+    "@sanity/default-login": "^1.149.11",
+    "@sanity/desk-tool": "^1.149.15",
     "@sanity/vision": "^1.149.0",
     "axios": "^0.19.2",
     "moment": "^2.24.0",
@@ -60,8 +60,5 @@
     "eslint-plugin-react-hooks": "^1.6.0",
     "eslint-plugin-standard": "^4.0.0",
     "prettier": "^1.17.0"
-  },
-  "resolutions": {
-    "fsevents": "1.2.9"
   }
 }
