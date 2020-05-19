@@ -186,6 +186,18 @@ const restaurant = {
       rows: 3,
     },
     {
+      title: "Experiences that can be had here",
+      name: "experiences",
+      type: "array",
+      of: [
+        {
+          title: "Experience",
+          type: "reference",
+          to: [{ type: "experience" }],
+        },
+      ],
+    },
+    {
       title: "Contact Person",
       name: "contact",
       description:

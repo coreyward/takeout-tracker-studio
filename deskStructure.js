@@ -11,6 +11,7 @@ import AuditIcon from "react-icons/lib/md/rate-review"
 import SadIcon from "react-icons/lib/io/sad"
 import PagesIcon from "react-icons/lib/ti/device-desktop"
 import AuthorIcon from "react-icons/lib/fa/user"
+import ExperiencesIcon from "react-icons/lib/io/bonfire"
 import moment from "moment"
 
 const sublist = (title, conditions) =>
@@ -68,6 +69,9 @@ export default () =>
       S.documentTypeListItem("list")
         .title("Lists")
         .icon(ListsIcon),
+      S.documentTypeListItem("experience")
+        .title("Experiences")
+        .icon(ExperiencesIcon),
       S.divider(),
       S.documentTypeListItem("announcement")
         .title("Announcements")
