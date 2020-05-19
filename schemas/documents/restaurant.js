@@ -62,6 +62,11 @@ const restaurant = {
       validation: Rule => Rule.required(),
     },
     {
+      title: "Priority Ranking",
+      name: "featured",
+      type: "boolean",
+    },
+    {
       title: "Last Update/Confirmation of Information",
       name: "confirmedAt",
       type: "datetime",
@@ -210,6 +215,7 @@ const restaurant = {
     closedForBusiness: false,
     unverified: false,
     confirmedAt: new Date().toISOString(),
+    featured: false,
   }),
   preview: {
     select: {
