@@ -1,5 +1,6 @@
 const serviceLabels = {
   "dine-in": "Dine-In",
+  "patio-dining": "Patio Dining",
   takeout: "Takeout",
   curbside: "Curbside Takeout",
   delivery: "By Restaurant",
@@ -115,7 +116,8 @@ const restaurant = {
       of: [{ type: "string" }],
       options: {
         list: [
-          { title: "Dine-In", value: "dine-in" },
+          { title: "Dining Room Open", value: "dine-in" },
+          { title: "Patio Dining Open", value: "patio-dining" },
           { title: "Takeout", value: "takeout" },
           { title: "Curbside Takeout", value: "curbside" },
           { title: "Delivery by Restaurant", value: "delivery" },
