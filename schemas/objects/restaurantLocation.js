@@ -11,8 +11,22 @@ const restaurantLocation = {
         collapsed: true,
       },
     },
+    {
+      title: "Happy Hour",
+      name: "happyHour",
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
+    },
   ],
   fields: [
+    {
+      title: "This location is open for business.",
+      name: "openForBusiness",
+      type: "boolean",
+      validation: Rule => Rule.required(),
+    },
     {
       title: "Address",
       name: "address",
@@ -36,6 +50,26 @@ const restaurantLocation = {
       validation: Rule => Rule.uri(),
     },
     {
+      title: "Location Order URL",
+      name: "locationOrderUrl",
+      type: "url",
+      validation: Rule => Rule.uri(),
+    },
+    {
+      title: "Happy Hour Times",
+      name: "happyHourTimes",
+      type: "array",
+      of: [{ type: "string" }],
+      fieldset: "happyHour",
+    },
+    {
+      title: "Happy Hour Details",
+      name: "happyHourDetails",
+      type: "text",
+      fieldset: "happyHour",
+      rows: 3,
+    },
+    {
       title: "Also Offering",
       name: "alsoOffering",
       description:
@@ -52,12 +86,6 @@ const restaurantLocation = {
           { title: "Merchandise", value: "merch" },
         ],
       },
-    },
-    {
-      title: "This location is open for business.",
-      name: "openForBusiness",
-      type: "boolean",
-      validation: Rule => Rule.required(),
     },
     {
       title: "Raw Geodata",
