@@ -63,6 +63,13 @@ const restaurantLocation = {
       fieldset: "happyHour",
     },
     {
+      title: "Happy Hour Menu",
+      name: "happyHourMenu",
+      type: "url",
+      validation: Rule => Rule.uri(),
+      fieldset: "happyHour",
+    },
+    {
       title: "Happy Hour Details",
       name: "happyHourDetails",
       type: "text",
