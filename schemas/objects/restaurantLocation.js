@@ -56,6 +56,11 @@ const restaurantLocation = {
       validation: Rule => Rule.uri(),
     },
     {
+      title: "This location has a Happy Hour.",
+      name: "hasHappyHour",
+      type: "boolean",
+    },
+    {
       title: "Happy Hour Times",
       name: "happyHourTimes",
       type: "array",
