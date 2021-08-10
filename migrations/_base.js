@@ -79,12 +79,12 @@ const migrateBatch = async (
   await commitTransaction(transaction)
 
   if (!options.singleRun) {
-    return migrateBatch(fetchParams, buildOperation)
+    return migrateBatch(fetchParams, buildOperation, options)
   }
 }
 
-const migrate = (fetchParams, buildPatch) => {
-  migrateBatch(fetchParams, buildPatch).catch(err => {
+const migrate = (...args) => {
+  migrateBatch(...args).catch(err => {
     console.error(err)
     process.exit(1)
   })
