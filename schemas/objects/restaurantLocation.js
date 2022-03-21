@@ -38,6 +38,13 @@ const restaurantLocation = {
       type: "string",
     },
     {
+      title: "Neighborhood",
+      name: "neighborhood",
+      description: "Which neighborhood is this location in?",
+      type: "reference",
+      to: [{ type: "neighborhood" }],
+    },
+    {
       title: "Hours",
       name: "hours",
       type: "array",
